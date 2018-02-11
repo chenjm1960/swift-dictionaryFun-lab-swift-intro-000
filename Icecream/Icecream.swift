@@ -69,39 +69,52 @@ class Icecream {
     }
     
 
-    
-    
     // 6.
     
+    func remove(person:String) -> Bool {
+        for name in Array(favoriteFlavorsOfIceCream.keys) {
+            if person == name {
+                favoriteFlavorsOfIceCream.removeValue(forKey: name)
+                return true
+            }
+        }
+            return false
+    }
     
-    
-    
-    
-    
-    
-    
+   
     // 7.
     
+    func numberOfAttendees() -> Int {
+        let num = favoriteFlavorsOfIceCream.count
+        return num
+    }
     
-    
-    
-    
-    
-    
-    
+ 
     // 8.
-    
-    
-    
-    
-    
-    
-    
+    func add(person:String, withFlavor flavor:String) -> Bool {
+        for (name,flavorIce) in favoriteFlavorsOfIceCream {
+            if person == name {
+                return false
+            }
+        }
+        favoriteFlavorsOfIceCream[person] = flavor
+        return true
+    }
     
     
     // 9.
     
-    
+    func attendeeList() -> String {
+        var listAttendee = ""
+        let allNames = Array(favoriteFlavorsOfIceCream.keys).sorted()
+        for name in allNames {
+            let flavor = favoriteFlavorsOfIceCream[name]
+            listAttendee += (name + " likes " + flavor! + "\n")
+        }
+        listAttendee.removeLast()
+        
+        return listAttendee
+    }
     
     
     
@@ -110,3 +123,22 @@ class Icecream {
     
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
